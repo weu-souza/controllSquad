@@ -1,0 +1,19 @@
+.feature {
+    cursor: pointer;
+    width: 230px;
+    .icon-text {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+    h3 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 16px;
+        color: #6f8dc9;
+    }
+    span {
+        font-size: 14px;
+        color: #515151;
+    }
+}

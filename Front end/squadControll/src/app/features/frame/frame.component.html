@@ -1,0 +1,22 @@
+<div class="grid-container">
+    <div class="header">
+        <span class="pointer" routerLink="/home">Conecta RH</span>
+        <div class="divider"></div>
+    </div>
+    <div class="router">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-items">
+            <app-home-icon-svg routerLink="/home"></app-home-icon-svg>
+            <app-employees-svg routerLink="/employees/list"></app-employees-svg>
+            <app-squad-svg routerLink="/squad/list"></app-squad-svg>
+            <app-icon-calendar-svg  routerLink="/absences"></app-icon-calendar-svg>
+        </div>
+        <div></div>
+        <div class="sidebar-items"> 
+<!--            <app-config-svg routerLink="config"></app-config-svg>-->
+            <app-logout-svg class="pointer" (click)="logout()"></app-logout-svg>
+        </div>
+    </div>
+</div>

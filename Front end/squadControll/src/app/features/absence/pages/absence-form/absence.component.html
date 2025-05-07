@@ -1,0 +1,73 @@
+<div class="squad-employee-grid">
+    <div *ngIf="squads$ | async as squads; else loading">
+        <label>SQUAD</label>
+        <select #squad (change)="onSquadSelected(squad.value)">
+            <option default>Selecione uma squad</option>
+            <option *ngFor="let squad of squads" [value]="squad.ext">{{squad.squad}}</option>
+        </select>
+    </div>
+
+    <div *ngIf="employees$ | async as employees">
+        <label>COLABORADORES</label>
+        <select #employee (change)="onEmployeeSelected(employee.value)">
+            <option default>Selecione um colaborador</option>
+            <option *ngFor="let employee of employees" [value]="employee.dadosPessoais.cpf">
+                {{employee.dadosPessoais.nome}}</option>
+        </select>
+    </div>
+</div>
+
+<app-title [title]="'Férias'"></app-title>
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<app-title [title]="'Ausências'"></app-title>
+{{absenceForm.value | json}}
+<form [formGroup]="absenceForm">
+    <div class="abstence-grid">
+        <div>
+            <label>DATA INÍCIO</label>
+            <input type="datetime-local" formControlName="dataInicio"/>
+        </div>
+    
+        <div>
+            <label>DATA TÉRMINO</label>
+            <input type="datetime-local" formControlName="dataTermino" />
+        </div>
+    
+        <div class="justificativa">
+            <label>JUSTIFICATIVA</label>
+            <textarea formControlName="justificativa"></textarea>
+        </div>
+    
+        <div class="absence-btn">
+            <button (click)="addAbsence()">Adicionar</button>
+        </div>
+    </div>
+</form>
+
+<ng-template #loading>
+    Carregando...
+</ng-template>
+
+<!-- <ng-template #employeesTable> -->
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="dataInicio">
+            <th mat-header-cell *matHeaderCellDef> Data Início </th>
+            <td mat-cell *matCellDef="let absence"> {{absence?.dataInicio}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataTermino">
+            <th mat-header-cell *matHeaderCellDef> Data Término </th>
+            <td mat-cell *matCellDef="let absence"> {{absence?.dataTermino}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="justificativa">
+            <th mat-header-cell *matHeaderCellDef> Justificativa </th>
+            <td mat-cell *matCellDef="let absence"> {{absence?.justificativa}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+<!-- </ng-template> -->

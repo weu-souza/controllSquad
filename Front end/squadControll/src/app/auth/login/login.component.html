@@ -1,0 +1,49 @@
+<div class="container">
+    <section id="login-card">
+        <div class="card flex flex-column">
+            <div class="welcome">
+                Bem-vindo!
+            </div>
+            <div class="sing-in">
+                Login
+            </div>
+            <div class="lorem">
+                Conecta RH, gestão de colaboradores e financeiro.
+            </div>
+            <form [formGroup]="loginForm">
+                <div class="field">
+                    <label for="float-username" class="label">E-mail</label>
+                    <input id="float-username" name="float-username" type="text" placeholder="Insira seu e-mail, ex:(email@email.com)" pInputText class="w-full" [formControlName]="FORM.email">
+                    <app-form-error-message [formMessage]="loginForm.get(FORM.email)">
+                    </app-form-error-message>
+                </div>
+                <div class="field">
+                    <label for="float-password" class="label">Senha</label>
+                    <input id="float-password" name="float-password" type="password" placeholder="Insira sua senha" pInputText class="w-full" [formControlName]="FORM.password">
+                    <app-form-error-message [formMessage]="loginForm.get(FORM.password)">
+                    </app-form-error-message>
+                </div>
+                <div class="flex justify-content-between">
+                    <div class="field-checkbox">
+                        <p-checkbox formControlName="checked" [binary]="true" inputId="binary"></p-checkbox>
+                        <label for="binary" class="checked">Lembre de mim</label>
+                    </div>
+                    <div class="forgot">
+                        <a href="#">Esqueceu a senha?</a>
+                    </div>
+                </div>
+                <div class="btn">
+                    <app-loading-button
+                        [fn]="register.bind(this)"
+                        [text]="'Entrar'">
+                    </app-loading-button>
+                </div>
+                <div class="py-2 w-full">
+                    <div class="flex justify-content-center align-items-center register">
+                        <a href="/register">Você não tem uma conta? <strong class="pl-1 text-900">Registro</strong></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

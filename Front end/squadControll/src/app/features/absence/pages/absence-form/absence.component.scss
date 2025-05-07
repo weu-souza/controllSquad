@@ -1,0 +1,45 @@
+label{
+    font-family: 'Inter';
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #515151;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.squad-employee-grid{
+    display: flex;
+    gap: 2em;
+}
+
+input{
+    width: 50%;
+}
+
+select{
+    width: 300px;
+}
+
+.abstence-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.justificativa{
+    grid-column: span 2;
+}
+
+textarea{
+    width: 98%;
+    height: 100px;
+}
+
+.absence-btn{
+    margin: 1em 0 2em 0;
+    justify-self: flex-end;
+    grid-column: span 2;
+}
+

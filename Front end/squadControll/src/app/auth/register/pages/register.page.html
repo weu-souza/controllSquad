@@ -1,0 +1,43 @@
+<div class="container">
+    <section id="login-card">
+        <div class="card flex flex-column">
+            <form [formGroup]="registerForm">
+                <div class="field">
+                    <label for="float-name" class="label">Nome*</label>
+                    <input id="float-name" name="float-username" type="text" placeholder="Insira seu nome" pInputText
+                           class="w-full" [formControlName]="FORM.name">
+                    <app-form-error-message [formMessage]="registerForm .get(FORM.name)">
+                    </app-form-error-message>
+                </div>
+                <div class="field">
+                    <label for="float-username" class="label">E-mail*</label>
+                    <input id="float-username" name="float-username" type="text"
+                           placeholder="Insira seu e-mail, ex:(email@email.com)" pInputText
+                           class="w-full"
+                           [formControlName]="FORM.email">
+                    <app-form-error-message [formMessage]="registerForm .get(FORM.email)">
+                    </app-form-error-message>
+                </div>
+                <div class="field">
+                    <label for="float-password" class="label">Senha*</label>
+                    <input id="float-password" name="float-password" type="password" placeholder="Insira sua senha"
+                           pInputText
+                           class="w-full" [formControlName]="FORM.password">
+                    <app-form-error-message [formMessage]="registerForm .get(FORM.password)">
+                    </app-form-error-message>
+                </div>
+                <div class="btn">
+                    <app-loading-button
+                        [fn]="register.bind(this)"
+                        [text]="'registrar'">
+                    </app-loading-button>
+                </div>
+                <div class="py-2 w-full">
+                    <div class="flex justify-content-center align-items-center register">
+                        <a href="/login">Você já possui uma conta? <strong class="pl-1 text-900">Entrar</strong></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

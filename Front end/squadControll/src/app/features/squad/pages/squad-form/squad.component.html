@@ -1,0 +1,45 @@
+<app-title [title]="'Informações do cliente'"></app-title>
+<form [formGroup]="squadForm">
+    <div class="grid-container">
+        <div>
+            <label>Nome completo do gestor</label>
+            <input type="text" [formControlName]="form.NomeGestor">
+            <app-form-error-message [formMessage]="squadForm.get(form.NomeGestor)"></app-form-error-message>
+        </div>
+        <div>
+            <label>Início contrato</label>
+            <input type="date" formControlName="inicioContrato">
+            <app-form-error-message [formMessage]="squadForm.get(form.InicioContrato)"></app-form-error-message>
+        </div>
+        <div>
+            <label>Término contrato</label>
+            <input type="date" formControlName="terminoContrato">
+            <app-form-error-message [formMessage]="squadForm.get(form.TerminoContrato)"></app-form-error-message>
+        </div>
+        <div>
+            <label>E-mail</label>
+            <input type="text" formControlName="email">
+            <app-form-error-message [formMessage]="squadForm.get(form.Email)"></app-form-error-message>
+        </div>
+        <div>
+            <label>Nome SQUAD</label>
+            <input type="text" formControlName="squad">
+            <app-form-error-message [formMessage]="squadForm.get(form.Squad)"></app-form-error-message>
+        </div>
+        <div>
+            <label>EXT</label>
+            <input type="text" formControlName="ext">
+            <app-form-error-message [formMessage]="squadForm.get(form.Ext)"></app-form-error-message>
+        </div>
+        <div>
+            <label>Celular</label>
+            <input type="text" formControlName="celular">
+            <app-form-error-message [formMessage]="squadForm.get(form.Celular)"></app-form-error-message>
+        </div>
+    </div>
+
+    <div class="btn">
+        <button routerLink="/squad/list">Voltar</button>
+        <app-loading-button [fn]="cadastrar.bind(this)" [text]="'CADASTRAR'"></app-loading-button>
+    </div>
+</form>

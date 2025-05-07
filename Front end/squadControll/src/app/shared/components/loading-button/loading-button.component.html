@@ -1,0 +1,10 @@
+<div *ngIf="isLoading$ | async as loading; else loadingBtn">
+    <button [disabled]="true"><div class="lds-dual-ring"></div></button>
+</div>
+
+<ng-template #loadingBtn>
+    <div class="btn">
+        <button (click)="run()">{{text}}</button>
+        <!-- <button (click)="register()">Registrar</button> -->
+    </div>
+</ng-template>

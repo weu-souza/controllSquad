@@ -1,0 +1,27 @@
+.grid-container{
+    display: flex;
+    justify-content: center;
+    height: 280px;
+    background-color: white;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    place-items: center;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 24px;
+    color: #0F1C50;
+    margin: 0;
+}
+
+h2{
+    font-weight: 400;
+    font-size: 14px;
+    color: #515151;
+    margin: 0;
+}

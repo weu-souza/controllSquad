@@ -1,0 +1,28 @@
+.new-employee{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 1em 0;
+    button{
+        width: 200px
+    }
+}
+
+
+.mat-column-more{
+    width: 1px;
+}
+
+.no-style{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    width: auto;
+}
+
+td{
+    cursor: pointer;
+}

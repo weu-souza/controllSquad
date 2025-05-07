@@ -1,0 +1,74 @@
+<app-title [title]="'Colaboradores'"></app-title>
+
+<div class="new-employee">
+    <button routerLink="/employees">NOVO COLABORADOR</button>
+</div>
+
+<ng-container *ngIf="dataSource.loading$ | async; else employeesTable">
+    carregando
+</ng-container>
+
+<ng-template #employeesTable>
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.dadosPessoais?.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="celularPessoal">
+            <th mat-header-cell *matHeaderCellDef> Celular pessoal </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.dadosPessoais?.celular | mask: '(00) 0 0000-0000' }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cep">
+            <th mat-header-cell *matHeaderCellDef> CEP </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.dadosPessoais?.cep | mask: '00000-000'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cidade">
+            <th mat-header-cell *matHeaderCellDef> Cidade </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.dadosPessoais?.cidade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef> CPF </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.dadosPessoais?.cpf | mask: '000.000.000-00'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataAniversario">
+            <th mat-header-cell *matHeaderCellDef> Data aniversário </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.dadosPessoais?.dataAniversario | date: 'dd/MM/yyyy'}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="squad">
+            <th mat-header-cell *matHeaderCellDef> SQUAD </th>
+            <td mat-cell *matCellDef="let employee" [routerLink]="['/employees', employee.dadosPessoais.cpf]"> {{employee?.itau?.squad }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="more">
+            <th mat-header-cell *matHeaderCellDef> <button class="no-style" [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button> </th>
+            <td mat-cell *matCellDef="let employee"><button class="remove-btn" (click)="removeEmployee(employee)">X</button> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</ng-template>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+    </button>
+</mat-menu>

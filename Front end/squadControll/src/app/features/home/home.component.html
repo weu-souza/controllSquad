@@ -1,0 +1,28 @@
+<app-page-title [title]="'Conecta RH'" text="Página inicial de navegação do software.">
+    <app-home-svg></app-home-svg>
+</app-page-title>
+
+<div class="wrapper">
+    <div class="grid-container max-width">
+        <app-page-item [title]="'SQUAD'" 
+            [text]="'Gestão das SQUADS'" 
+            routerLink="/squad/list">
+            <app-squad-svg></app-squad-svg>
+        </app-page-item>
+        <app-page-item [title]="'Colaboradores'" 
+            [text]="'Gestão dos colaboradores'" 
+            routerLink="/employees/list">
+            <app-employees-svg></app-employees-svg>
+        </app-page-item>
+        <app-page-item [title]="'Férias e Ausências'" 
+            [text]="'Gestão de férias e ausências'" 
+            routerLink="/absences">
+            <app-icon-calendar-svg></app-icon-calendar-svg>
+        </app-page-item>
+<!--        <app-page-item [title]="'Financeiro'" -->
+<!--            [text]="'Gestão faturamento'" -->
+<!--            routerLink="/financial">-->
+<!--            <app-dollar-calendar-svg></app-dollar-calendar-svg>-->
+<!--        </app-page-item>-->
+    </div>
+</div>

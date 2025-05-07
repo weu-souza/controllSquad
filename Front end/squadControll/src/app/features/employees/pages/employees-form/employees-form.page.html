@@ -1,0 +1,191 @@
+<div class="wrapper">
+    <div class="max-width">
+        <form [formGroup]="employeeForm">
+            <app-title [title]="'Informações do colaborador'"></app-title>
+            <div class="grid-employee-infos" formGroupName="dadosPessoais">
+                <div>
+                    <label>Nome completo</label>
+                    <input type="text" formControlName="nome" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('nome')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Data aniversário</label>
+                    <input type="date" formControlName="dataAniversario" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('dataAniversario')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Telefone fixo</label>
+                    <input type="text" formControlName="telefone" mask="(00) 0000-0000" />
+                </div>
+                <div>
+                    <label>Celular pessoal</label>
+                    <input type="text" formControlName="celular" mask="(00) 0 0000-0000" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('celular')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Estado</label>
+                    <select formControlName="estado">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Caterina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="DF">Distrito Federal</option>
+                    </select>
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('estado')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Cidade</label>
+                    <input type="text" formControlName="cidade" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('cidade')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>CPF</label>
+                    <input type="text" formControlName="cpf" mask="000.000.000-00" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('cpf')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>RG</label>
+                    <input type="text" formControlName="rg" mask="00.000.000-09" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('rg')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Órgão emissor</label>
+                    <input type="text" formControlName="orgaoEmissor" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('orgaoEmissor')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>CEP</label>
+                    <input type="text" formControlName="cep" mask="00000-000" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('cep')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Logradouro</label>
+                    <input type="text" formControlName="logradouro" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('logradouro')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Número</label>
+                    <input type="text" formControlName="numero" />
+                    <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('numero')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Complemento</label>
+                    <input type="text" formControlName="complemento" />
+                </div>
+            </div>
+            <app-title [title]="'Informações Empresa'"></app-title>
+            <div class="grid-empresa-infos" formGroupName="empresa">
+                <div>
+                    <label>Celular</label>
+                    <input type="text" formControlName="celular" mask="(00) 0 0000-0000" />
+                </div>
+                <div>
+                    <label>Data admissão</label>
+                    <input type="date" formControlName="dataAdmissao" />
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('dataAdmissao')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Tarifa</label>
+                    <input currencyMask type="text" formControlName="tarifa" />
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('tarifa')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Gestor</label>
+                    <input type="text" formControlName="gestor" />
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('gestor')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Unidade de negócio</label>
+                    <select formControlName="unidadeNegocio">
+                        <option [value]="'Centers'">Centers</option>
+                        <option [value]="'Consultoria'">Consultoria</option>
+                    </select>
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('unidadeNegocio')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Número SAP</label>
+                    <input type="text" formControlName="numeroSap" />
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('numeroSap')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>E-mail</label>
+                    <input type="text" formControlName="email" />
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('email')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>E-mail curto</label>
+                    <input type="text" formControlName="emailCurto" />
+                    <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('emailCurto')"></app-form-error-message>
+                </div>
+            </div>
+            <app-title [title]="'Tecnologias'"></app-title>
+            <div>
+                <label>Tecnologias</label>
+                <select #tech (change)="onTechSelected(tech.value)">
+                    <option default>Adicione as tecnologias</option>
+                    <option value=".NET">.NET</option>
+                    <option value="Angular">Angular</option>
+                </select>
+                <br><br>
+                <mat-chip-list>
+                    <mat-chip *ngFor="let tech of techs.value; let i = index">
+                        {{tech?.nome}}
+                        <button matChipRemove (click)="remove(i)">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <app-title [title]="'Informações Cliente'"></app-title>
+            <div class="grid-cliente-infos" formGroupName="cliente">
+                <div>
+                    <label>RACF</label>
+                    <input type="text" formControlName="racf" />
+                    <app-form-error-message [formMessage]="employeeForm.get('cliente')!.get('racf')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>Funcional</label>
+                    <input type="text" formControlName="funcional" />
+                    <app-form-error-message [formMessage]="employeeForm.get('cliente')!.get('funcional')"></app-form-error-message>
+                </div>
+                <div *ngIf="squads$ | async as squads"> 
+                    <label>SQUAD</label>
+                    <select formControlName="squad">
+                        <option *ngFor="let squad of squads" [value]="squad.squad">{{squad.squad}}</option>
+                    </select>
+                    <app-form-error-message [formMessage]="employeeForm.get('cliente')!.get('squad')"></app-form-error-message>
+                </div>
+                <div>
+                    <label>E-mail cliente</label>
+                    <input type="text" formControlName="email" />
+                    <app-form-error-message [formMessage]="employeeForm.get('cliente')!.get('email')"></app-form-error-message>
+                </div>
+            </div>
+            <div class="btn">
+                <button routerLink="/employees/list">Voltar</button>
+                <app-loading-button [fn]="send.bind(this)" [text]="'CADASTRAR'"></app-loading-button>
+            </div>
+        </form>
+    </div>
+</div>

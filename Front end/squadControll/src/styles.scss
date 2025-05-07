@@ -1,0 +1,99 @@
+@use '@angular/material' as mat;
+@include mat.core();
+$autsust-primary: mat.define-palette(mat.$indigo-palette);
+$autsust-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$autsust-warn: mat.define-palette(mat.$red-palette);
+
+$autsust-theme: mat.define-light-theme((
+  color: (
+    primary: $autsust-primary,
+    accent: $autsust-accent,
+    warn: $autsust-warn,
+  )
+));
+
+@include mat.all-component-themes($autsust-theme);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import "../node_modules/primeflex/primeflex";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/md-light-indigo/theme.css";
+@import "../node_modules/primeng/resources/primeng.css";
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter';
+    background-color: #f5f5f5;
+}
+
+table{
+    width: 100%;
+}
+
+button {
+    width: 145px;
+    height: 40px;
+    text-transform: uppercase;
+    background-color: #6785c1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input {
+    height: 30px;
+}
+
+select{
+    height: 35px;
+}
+
+textarea, input, select {
+    text-indent: 5px;
+}
+
+textarea:focus,
+input:focus, select:focus {
+    outline: none;
+}
+
+small {
+    font-size: 12px;
+    display: block;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+router-outlet + * {
+    display: block;
+    animation: fade 1s;
+}
+
+.wrapper{
+    display: grid;
+    justify-content: center;
+}
+
+.max-width{
+    max-width: 1280px;
+    min-width: 1000px;
+}
+
+.remove-btn{
+    background-color: #B71C1C;
+    color: white;
+    width: 30px;
+    height: 30px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
