@@ -1,53 +1,38 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/api/models/employee.model';
 import { TableSourceServiceBase } from 'src/app/shared/table/table-source-service.base';
-import { FirestoreRoutes } from 'src/constants/firestore.cte';
 import { Squad } from '../../../api/models/squad.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class EmployeesService implements TableSourceServiceBase<Employee>
-{
-    constructor(private firestore: AngularFirestore) { }
+export class EmployeesService implements TableSourceServiceBase<Employee> {
+    constructor(private http: HttpClient) {}
 
-    public getItems(): Observable<Employee[]>
-    {
+    public getItems(): Observable<Employee[]> {
         return this.getEmployees();
     }
 
-    public getSquads()
-    {
-        return this.firestore.collection<Squad>(FirestoreRoutes.Squads).valueChanges()
+    public getSquads(): Observable<Squad[]> {
+        return this.http.get<Squad[]>('/api/squads');
     }
 
-    public async createEmployee(employee: Employee)
-    {
-        return await this.firestore
-            .collection(FirestoreRoutes.Employees)
-            .doc(employee.dadosPessoais.cpf)
-            .set(employee, { merge: true })
+    public async createEmployee(employee: Employee) {
+        return this.http.post('/api/employees', employee).toPromise();
     }
 
-    public getEmployees()
-    {
-        return this.firestore
-            .collection<Employee>(FirestoreRoutes.Employees)
-            .valueChanges();
+    public getEmployees(): Observable<Employee[]> {
+        return this.http.get<Employee[]>('/api/employees');
     }
 
-    public removeEmployee(employee: Employee)
-    {
-        return this.firestore
-            .collection(FirestoreRoutes.Employees)
-            .doc(employee.dadosPessoais.cpf)
-            .delete();
+    public removeEmployee(employee: Employee) {
+        return this.http
+            .delete(`/api/employees/${employee.dadosPessoais.cpf}`)
+            .toPromise();
     }
 
-    public getEmployee(cpf: string)
-    {
-        return this.firestore.collection(FirestoreRoutes.Employees)
-            .doc<Employee>(cpf)
-            .valueChanges();
+    public getEmployee(cpf: string): Observable<Employee> {
+        return this.http.get<Employee>(`/api/employees/${cpf}`);
     }
 }

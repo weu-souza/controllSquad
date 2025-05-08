@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
     providedIn: 'root',
 })
+
 export class AuthService {
     userData: any;
     private apiUrl = environment.ApiUrl; 

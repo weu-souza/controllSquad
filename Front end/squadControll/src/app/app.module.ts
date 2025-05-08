@@ -1,8 +1,6 @@
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFireModule } from '@angular/fire/compat';
 import { AppComponent } from './app.component';
-import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FrameComponent } from './features/frame/frame.component';
@@ -21,6 +19,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
+import { HttpClientModule } from '@angular/common/http';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 export const customCurrencyMaskConfig = {
@@ -57,6 +56,7 @@ registerLocaleData(localeBr, 'pt');
         PageTitleModule,
         SvgModule,
         PageItemModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         NgxMaskModule.forRoot(),
         NgxCurrencyModule.forRoot(customCurrencyMaskConfig),

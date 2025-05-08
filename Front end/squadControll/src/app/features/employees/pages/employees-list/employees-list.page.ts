@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Employee } from 'src/app/api/models/employee.model';
-import { FirebaseServiceBase } from 'src/app/api/service/firebase-service.base';
 import { tryRunPromise } from 'src/app/shared/functions';
 import { DataSourceBase } from 'src/app/shared/table/datasource.base';
 import { EmployeesService } from '../../services/employees.service';
@@ -10,7 +9,7 @@ import { EmployeesService } from '../../services/employees.service';
     templateUrl: './employees-list.page.html',
     styleUrls: ['./employees-list.page.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [EmployeesService, FirebaseServiceBase<Employee>]
+    providers: [EmployeesService]
 })
 export class EmployeesListPage
 {
