@@ -9,4 +9,5 @@ export enum AppRoutes
     Financial = 'financial',
     Absence = 'absences',
     list = 'squad/list',
+    employeesList = 'employees/list',
 }

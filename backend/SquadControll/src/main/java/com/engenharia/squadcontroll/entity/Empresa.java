@@ -3,35 +3,23 @@ package com.engenharia.squadcontroll.entity;
 import com.engenharia.squadcontroll.dto.EmpresaDTO;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    private Integer celular;
-    private Integer dataAdmissao;
+    private String celular;
+    private Date dataAdmissao;
     private String email;
     private String emailCurto;
     private String nomeGestor;
-    private int numeroSap;
-    private int tarifa;
+    private String numeroSap;
+    private Double tarifa;
     private String unidadeDeNegocio;
-    @OneToOne
-    @JoinColumn(name = "num_doc_FK", referencedColumnName = "id")
-    private Employers numDocFk;
 
-    public Empresa(long id, Integer celular, Integer dataAdmissao, String email, String emailCurto, String nomeGestor, int numeroSap, int tarifa, String unidadeDeNegocio, Employers numDocFk) {
-        this.id = id;
-        this.celular = celular;
-        this.dataAdmissao = dataAdmissao;
-        this.email = email;
-        this.emailCurto = emailCurto;
-        this.nomeGestor = nomeGestor;
-        this.numeroSap = numeroSap;
-        this.tarifa = tarifa;
-        this.unidadeDeNegocio = unidadeDeNegocio;
-        this.numDocFk = numDocFk;
-    }
+
 
     public Empresa() {
     }
@@ -46,7 +34,7 @@ public class Empresa {
         this.numeroSap = DTO.getNumeroSap();
         this.tarifa = DTO.getTarifa();
         this.unidadeDeNegocio = DTO.getUnidadeDeNegocio();
-        this.numDocFk = DTO.getNumDocFk();
+
     }
 
     public long getId() {
@@ -57,19 +45,27 @@ public class Empresa {
         this.id = id;
     }
 
-    public Integer getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
-    public Integer getDataAdmissao() {
+    public void setTarifa(Double tarifa) {
+        this.tarifa = tarifa;
+    }
+
+    public Double getTarifa() {
+        return tarifa;
+    }
+
+    public Date getDataAdmissao() {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(Integer dataAdmissao) {
+    public void setDataAdmissao(Date dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
 
@@ -97,20 +93,12 @@ public class Empresa {
         this.nomeGestor = nomeGestor;
     }
 
-    public int getNumeroSap() {
+    public String getNumeroSap() {
         return numeroSap;
     }
 
-    public void setNumeroSap(int numeroSap) {
+    public void setNumeroSap(String numeroSap) {
         this.numeroSap = numeroSap;
-    }
-
-    public int getTarifa() {
-        return tarifa;
-    }
-
-    public void setTarifa(int tarifa) {
-        this.tarifa = tarifa;
     }
 
     public String getUnidadeDeNegocio() {
@@ -121,11 +109,5 @@ public class Empresa {
         this.unidadeDeNegocio = unidadeDeNegocio;
     }
 
-    public Employers getNumDocFk() {
-        return numDocFk;
-    }
 
-    public void setNumDocFk(Employers numDocFk) {
-        this.numDocFk = numDocFk;
-    }
 }

@@ -1,54 +1,49 @@
-export interface Employee
-{
-    dadosPessoais: DadosPessoais,
-    tecnologias: any[],
-    empresa: Empresa,
-    cliente: Cliente,
-    ausencias: AusenciaFerias
+export interface Employee {
+    id: string;
+    dadosPessoais: DadosPessoais;
+    empresa: Empresa;
+    cliente: Cliente;
+    ausencias: AusenciaFerias;
 }
 
-export class Employee
-{
-    constructor({}: Employee)
-    {
-        this.tecnologias = []
-    }
+export class Employee {
+    constructor(
+        public dadosPessoais: DadosPessoais,
+        public empresa: Empresa,
+        public cliente: Cliente,
+        public ausencias: AusenciaFerias
+    ) {}
 }
 
-export interface Falta
-{
+export interface Falta {
     dataInicio: Date;
     dataTermino: Date;
     justificativa: string;
 }
 
-export interface AusenciaFerias
-{
-    ausencia: Falta[]
+export interface AusenciaFerias {
+    ausencia: Falta[];
 }
 
-interface Cliente
-{
+interface Cliente {
     racf?: string;
     funcional?: string;
     squad?: string;
     email?: string;
 }
 
-interface Empresa
-{
+interface Empresa {
     celular?: string;
     dataAdmissao?: Date;
     tarifa?: number;
-    gestor?: string;
+    nomeGestor?: string;
     unidadeNegocio?: string;
-    numeroSap?: number;
+    numeroSap?: string;
     email?: string;
     emailCurto?: string;
 }
 
-interface DadosPessoais
-{
+interface DadosPessoais {
     nome?: string;
     dataAniversario?: Date;
     telefone?: string;

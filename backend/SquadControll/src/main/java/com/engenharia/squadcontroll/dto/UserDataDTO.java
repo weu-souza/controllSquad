@@ -4,66 +4,47 @@ package com.engenharia.squadcontroll.dto;
 import com.engenharia.squadcontroll.entity.Employers;
 import com.engenharia.squadcontroll.entity.User;
 import com.engenharia.squadcontroll.entity.UserData;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 public class UserDataDTO {
     private long id;
-    private Integer celular;
-    private Integer cep;
-    private String cidade;
-    private Date aniversario;
-    private String estado;
-    private String logradouro;
     private String nome;
+    private Date dataAniversario;
+    private String telefone;
+    private String celular;
+    private String estado;
+    private String cidade;
+    private String cpf;
+    private String rg;
     private String orgaoEmissor;
-    private Integer rg;
-    private Integer telefone;
-    private Employers numDocFk;
+    private String cep;
+    private String logradouro;
+    private String complemento;
+    private String numero;
+
     private User userFk;
 
     public UserDataDTO() {
 
     }
 
-    public UserDataDTO(long id, Integer celular, Integer cep, String cidade, Date aniversario, String estado, String logradouro, String nome, String orgaoEmissor, Integer rg, Integer telefone, Employers numDocFk, User userFk) {
-        this.id = id;
-        this.celular = celular;
-        this.cep = cep;
-        this.cidade = cidade;
-        this.aniversario = aniversario;
-        this.estado = estado;
-        this.logradouro = logradouro;
-        this.nome = nome;
-        this.orgaoEmissor = orgaoEmissor;
-        this.rg = rg;
-        this.telefone = telefone;
-        this.numDocFk = numDocFk;
-        this.userFk = userFk;
-    }
 
     public UserDataDTO(UserData entity) {
         this.id = entity.getId();
         this.celular = entity.getCelular();
         this.cep = entity.getCep();
         this.cidade = entity.getCidade();
-        this.aniversario = entity.getAniversario();
+        this.dataAniversario = entity.getDataAniversario();
         this.estado = entity.getEstado();
         this.logradouro = entity.getLogradouro();
         this.nome = entity.getNome();
         this.orgaoEmissor = entity.getOrgaoEmissor();
         this.rg = entity.getRg();
         this.telefone = entity.getTelefone();
-        this.numDocFk = entity.getNumDocFk();
+
         this.userFk = entity.getUserFk();
-    }
-
-    public User getUserFk() {
-        return userFk;
-    }
-
-    public void setUserFk(User userFk) {
-        this.userFk = userFk;
     }
 
     public long getId() {
@@ -74,36 +55,36 @@ public class UserDataDTO {
         this.id = id;
     }
 
-    public Integer getCelular() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataAniversario() {
+        return dataAniversario;
+    }
+
+    public void setDataAniversario(Date dataAniversario) {
+        this.dataAniversario = dataAniversario;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
-    }
-
-    public Integer getCep() {
-        return cep;
-    }
-
-    public void setCep(Integer cep) {
-        this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public Date getAniversario() {
-        return aniversario;
-    }
-
-    public void setAniversario(Date aniversario) {
-        this.aniversario = aniversario;
     }
 
     public String getEstado() {
@@ -114,20 +95,28 @@ public class UserDataDTO {
         this.estado = estado;
     }
 
-    public String getLogradouro() {
-        return logradouro;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public String getOrgaoEmissor() {
@@ -138,27 +127,43 @@ public class UserDataDTO {
         this.orgaoEmissor = orgaoEmissor;
     }
 
-    public Integer getRg() {
-        return rg;
+    public String getCep() {
+        return cep;
     }
 
-    public void setRg(Integer rg) {
-        this.rg = rg;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
-    public Integer getTelefone() {
-        return telefone;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setTelefone(Integer telefone) {
-        this.telefone = telefone;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
-    public Employers getNumDocFk() {
-        return numDocFk;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setNumDocFk(Employers numDocFk) {
-        this.numDocFk = numDocFk;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public User getUserFk() {
+        return userFk;
+    }
+
+    public void setUserFk(User userFk) {
+        this.userFk = userFk;
     }
 }

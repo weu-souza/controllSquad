@@ -139,24 +139,7 @@
                     <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('emailCurto')"></app-form-error-message>
                 </div>
             </div>
-            <app-title [title]="'Tecnologias'"></app-title>
-            <div>
-                <label>Tecnologias</label>
-                <select #tech (change)="onTechSelected(tech.value)">
-                    <option default>Adicione as tecnologias</option>
-                    <option value=".NET">.NET</option>
-                    <option value="Angular">Angular</option>
-                </select>
-                <br><br>
-                <mat-chip-list>
-                    <mat-chip *ngFor="let tech of techs.value; let i = index">
-                        {{tech?.nome}}
-                        <button matChipRemove (click)="remove(i)">
-                            <mat-icon>cancel</mat-icon>
-                        </button>
-                    </mat-chip>
-                </mat-chip-list>
-            </div>
+           
             <app-title [title]="'Informações Cliente'"></app-title>
             <div class="grid-cliente-infos" formGroupName="cliente">
                 <div>

@@ -8,18 +8,13 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    private Integer funcional;
+    private String funcional;
     private String racf;
-    @OneToOne
-    @JoinColumn(name = "num_doc_FK", referencedColumnName = "id")
-    private Employers numDocFk;
+    private  String squad;
+    private String email;
 
-    public Client(long id, Integer funcional, String racf, Employers numDocFk) {
-        this.id = id;
-        this.funcional = funcional;
-        this.racf = racf;
-        this.numDocFk = numDocFk;
-    }
+
+
 
     public Client() {
     }
@@ -27,7 +22,9 @@ public class Client {
         this.id = dto.getId();
         this.funcional = dto.getFuncional();
         this.racf = dto.getRacf();
-        this.numDocFk = new Employers(dto.getNumDocFk());
+        this.squad = dto.getSquad();
+        this.email = dto.getEmail();
+
     }
 
     public long getId() {
@@ -38,12 +35,28 @@ public class Client {
         this.id = id;
     }
 
-    public Integer getFuncional() {
+    public String getFuncional() {
         return funcional;
     }
 
-    public void setFuncional(Integer funcional) {
+    public void setFuncional(String funcional) {
         this.funcional = funcional;
+    }
+
+    public String getSquad() {
+        return squad;
+    }
+
+    public void setSquad(String squad) {
+        this.squad = squad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getRacf() {
@@ -52,13 +65,5 @@ public class Client {
 
     public void setRacf(String racf) {
         this.racf = racf;
-    }
-
-    public Employers getNumDocFk() {
-        return numDocFk;
-    }
-
-    public void setNumDocFk(Employers numDocFk) {
-        this.numDocFk = numDocFk;
     }
 }

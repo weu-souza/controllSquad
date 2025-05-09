@@ -4,31 +4,20 @@ import com.engenharia.squadcontroll.entity.Employers;
 import com.engenharia.squadcontroll.entity.Empresa;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 public class EmpresaDTO {
 
     private long id;
-    private Integer celular;
-    private Integer dataAdmissao;
+    private String celular;
+    private Date dataAdmissao;
     private String email;
     private String emailCurto;
     private String nomeGestor;
-    private int numeroSap;
-    private int tarifa;
+    private String numeroSap;
+    private Double tarifa;
     private String unidadeDeNegocio;
-    private Employers numDocFk;
 
-    public EmpresaDTO(long id, Integer celular, Integer dataAdmissao, String email, String emailCurto, String nomeGestor, int numeroSap, int tarifa, String unidadeDeNegocio, Employers numDocFk) {
-        this.id = id;
-        this.celular = celular;
-        this.dataAdmissao = dataAdmissao;
-        this.email = email;
-        this.emailCurto = emailCurto;
-        this.nomeGestor = nomeGestor;
-        this.numeroSap = numeroSap;
-        this.tarifa = tarifa;
-        this.unidadeDeNegocio = unidadeDeNegocio;
-        this.numDocFk = numDocFk;
-    }
 
     public EmpresaDTO() {
     }
@@ -43,7 +32,7 @@ public class EmpresaDTO {
         this.numeroSap = entity.getNumeroSap();
         this.tarifa = entity.getTarifa();
         this.unidadeDeNegocio = entity.getUnidadeDeNegocio();
-        this.numDocFk = entity.getNumDocFk();
+
     }
 
     public long getId() {
@@ -54,21 +43,14 @@ public class EmpresaDTO {
         this.id = id;
     }
 
-    public Integer getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
-    public Integer getDataAdmissao() {
-        return dataAdmissao;
-    }
-
-    public void setDataAdmissao(Integer dataAdmissao) {
-        this.dataAdmissao = dataAdmissao;
-    }
 
     public String getEmail() {
         return email;
@@ -94,19 +76,27 @@ public class EmpresaDTO {
         this.nomeGestor = nomeGestor;
     }
 
-    public int getNumeroSap() {
+    public String getNumeroSap() {
         return numeroSap;
     }
 
-    public void setNumeroSap(int numeroSap) {
+    public void setNumeroSap(String numeroSap) {
         this.numeroSap = numeroSap;
     }
 
-    public int getTarifa() {
+    public Date getDataAdmissao() {
+        return dataAdmissao;
+    }
+
+    public void setDataAdmissao(Date dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
+    }
+
+    public Double getTarifa() {
         return tarifa;
     }
 
-    public void setTarifa(int tarifa) {
+    public void setTarifa(Double tarifa) {
         this.tarifa = tarifa;
     }
 
@@ -118,11 +108,4 @@ public class EmpresaDTO {
         this.unidadeDeNegocio = unidadeDeNegocio;
     }
 
-    public Employers getNumDocFk() {
-        return numDocFk;
-    }
-
-    public void setNumDocFk(Employers numDocFk) {
-        this.numDocFk = numDocFk;
-    }
 }

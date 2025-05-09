@@ -11,58 +11,49 @@ public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    @Column(name = "celular")
-    private Integer celular;
-
-    @Column(name = "cep")
-    private Integer cep;
-
-    @Column(name = "cidade", length = 50)
-    private String cidade;
+    @Column(name = "nome", length = 50)
+    private String nome;
 
     @Column(name = "aniversario")
     @Temporal(TemporalType.DATE)
-    private Date aniversario;
+    private Date dataAniversario;
+
+    @Column(name = "telefone", length = 20)
+    private String telefone;
+
+    @Column(name = "celular", length = 20)
+    private String celular;
 
     @Column(name = "estado", length = 50)
     private String estado;
 
-    @Column(name = "logradouro", length = 50)
-    private String logradouro;
+    @Column(name = "cidade", length = 50)
+    private String cidade;
 
-    @Column(name = "nome", length = 50)
-    private String nome;
+    @Column(name = "cpf", length = 14)
+    private String cpf;
+
+    @Column(name = "rg", length = 20)
+    private String rg;
 
     @Column(name = "orgao_emissor", length = 50)
     private String orgaoEmissor;
 
-    @Column(name = "rg")
-    private Integer rg;
+    @Column(name = "cep", length = 10)
+    private String cep;
 
-    @Column(name = "telefone")
-    private Integer telefone;
+    @Column(name = "logradouro", length = 100)
+    private String logradouro;
 
-    @OneToOne
-    @JoinColumn(name = "num_doc_FK", referencedColumnName = "id")
-    private Employers numDocFk;
+    @Column(name = "complemento", length = 100)
+    private String complemento;
+
+    @Column(name = "numero")
+    private String numero;
+
     @OneToOne
     private User userFk;
 
-    public UserData(long id, Integer celular, Integer cep, String cidade, Date aniversario, String estado, String logradouro, String nome, String orgaoEmissor, Integer rg, Integer telefone, Employers numDocFk,User userFk) {
-        this.id = id;
-        this.celular = celular;
-        this.cep = cep;
-        this.cidade = cidade;
-        this.aniversario = aniversario;
-        this.estado = estado;
-        this.logradouro = logradouro;
-        this.nome = nome;
-        this.orgaoEmissor = orgaoEmissor;
-        this.rg = rg;
-        this.telefone = telefone;
-        this.numDocFk = numDocFk;
-        this.userFk = userFk;
-    }
 
     public UserData() {
 
@@ -73,23 +64,14 @@ public class UserData {
         this.celular = DTO.getCelular();
         this.cep = DTO.getCep();
         this.cidade = DTO.getCidade();
-        this.aniversario = DTO.getAniversario();
+        this.dataAniversario = DTO.getDataAniversario();
         this.estado = DTO.getEstado();
         this.logradouro = DTO.getLogradouro();
         this.nome = DTO.getNome();
         this.orgaoEmissor = DTO.getOrgaoEmissor();
         this.rg = DTO.getRg();
         this.telefone = DTO.getTelefone();
-        this.numDocFk = DTO.getNumDocFk();
         this.userFk = DTO.getUserFk();
-    }
-
-    public User getUserFk() {
-        return userFk;
-    }
-
-    public void setUserFk(User userFk) {
-        this.userFk = userFk;
     }
 
     public long getId() {
@@ -100,36 +82,36 @@ public class UserData {
         this.id = id;
     }
 
-    public Integer getCelular() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataAniversario() {
+        return dataAniversario;
+    }
+
+    public void setDataAniversario(Date dataAniversario) {
+        this.dataAniversario = dataAniversario;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
-    }
-
-    public Integer getCep() {
-        return cep;
-    }
-
-    public void setCep(Integer cep) {
-        this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public Date getAniversario() {
-        return aniversario;
-    }
-
-    public void setAniversario(Date aniversario) {
-        this.aniversario = aniversario;
     }
 
     public String getEstado() {
@@ -140,20 +122,28 @@ public class UserData {
         this.estado = estado;
     }
 
-    public String getLogradouro() {
-        return logradouro;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public String getOrgaoEmissor() {
@@ -164,28 +154,43 @@ public class UserData {
         this.orgaoEmissor = orgaoEmissor;
     }
 
-    public Integer getRg() {
-        return rg;
+    public String getCep() {
+        return cep;
     }
 
-    public void setRg(Integer rg) {
-        this.rg = rg;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
-    public Integer getTelefone() {
-        return telefone;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setTelefone(Integer telefone) {
-        this.telefone = telefone;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
-    public Employers getNumDocFk() {
-        return numDocFk;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setNumDocFk(Employers numDocFk) {
-        this.numDocFk = numDocFk;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public User getUserFk() {
+        return userFk;
+    }
+
+    public void setUserFk(User userFk) {
+        this.userFk = userFk;
+    }
 }
