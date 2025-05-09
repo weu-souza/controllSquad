@@ -5,40 +5,25 @@ import com.engenharia.squadcontroll.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public User signIn(User user) {
+        User existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+            return existingUser;
+        }
+        throw new RuntimeException("Credenciais inválidas");
     }
 
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
-    }
-
-    public User createUser(User user) {
+    public User signUp(User user) {
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            throw new RuntimeException("Usuário já existe");
+        }
         return userRepository.save(user);
     }
 
-    public Optional<User> updateUser(Long id, User userDetails) {
-        return userRepository.findById(id).map(user -> {
-            user.setEmail(userDetails.getEmail());
-            user.setPassword(userDetails.getPassword());
-            user.setUserDataFk(userDetails.getUserDataFk());
-            return userRepository.save(user);
-        });
-    }
-
-    public boolean deleteUser(Long id) {
-        return userRepository.findById(id).map(user -> {
-            userRepository.delete(user);
-            return true;
-        }).orElse(false);
-    }
 }

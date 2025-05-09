@@ -45,8 +45,10 @@ public class UserData {
     @OneToOne
     @JoinColumn(name = "num_doc_FK", referencedColumnName = "id")
     private Employers numDocFk;
+    @OneToOne
+    private User userFk;
 
-    public UserData(long id, Integer celular, Integer cep, String cidade, Date aniversario, String estado, String logradouro, String nome, String orgaoEmissor, Integer rg, Integer telefone, Employers numDocFk) {
+    public UserData(long id, Integer celular, Integer cep, String cidade, Date aniversario, String estado, String logradouro, String nome, String orgaoEmissor, Integer rg, Integer telefone, Employers numDocFk,User userFk) {
         this.id = id;
         this.celular = celular;
         this.cep = cep;
@@ -59,6 +61,7 @@ public class UserData {
         this.rg = rg;
         this.telefone = telefone;
         this.numDocFk = numDocFk;
+        this.userFk = userFk;
     }
 
     public UserData() {
@@ -78,6 +81,15 @@ public class UserData {
         this.rg = DTO.getRg();
         this.telefone = DTO.getTelefone();
         this.numDocFk = DTO.getNumDocFk();
+        this.userFk = DTO.getUserFk();
+    }
+
+    public User getUserFk() {
+        return userFk;
+    }
+
+    public void setUserFk(User userFk) {
+        this.userFk = userFk;
     }
 
     public long getId() {

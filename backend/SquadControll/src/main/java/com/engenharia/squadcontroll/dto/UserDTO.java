@@ -5,15 +5,15 @@ import com.engenharia.squadcontroll.entity.UserData;
 
 public class UserDTO {
     private long Id;
-    private String Email;
-    private String Password;
-    private UserData UserDataFk;
+    private String email;
+    private String name;
+    private String password;
 
-    public UserDTO(long id, String email, String password, UserData userDataFk) {
+    public UserDTO(long id, String email, String password, UserData userDataFk, String name) {
         Id = id;
-        Email = email;
-        Password = password;
-        UserDataFk = userDataFk;
+        this.email = email;
+        this.password = password;
+        this.name = name;
     }
 
     public UserDTO() {
@@ -22,9 +22,17 @@ public class UserDTO {
 
     public UserDTO(User entity) {
         this.Id = entity.getId();
-        this.Email = entity.getEmail();
-        this.Password = entity.getPassword();
-        this.UserDataFk = entity.getUserDataFk();
+        this.email = entity.getEmail();
+        this.password = entity.getPassword();
+        this.name = entity.getName();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getId() {
@@ -36,26 +44,20 @@ public class UserDTO {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
-    public UserData getUserDataFk() {
-        return UserDataFk;
-    }
 
-    public void setUserDataFk(UserData userDataFk) {
-        UserDataFk = userDataFk;
-    }
 }

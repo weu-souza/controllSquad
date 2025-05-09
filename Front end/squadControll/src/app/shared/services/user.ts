@@ -1,6 +1,5 @@
-export interface User
-{
-    uid: string;
+export interface User {
+    id: string;
     email: string;
     emailVerified: boolean;
 }

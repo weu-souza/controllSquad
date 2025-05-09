@@ -9,15 +9,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
     providedIn: 'root',
 })
-
 export class AuthService {
     userData: any;
-    private apiUrl = environment.ApiUrl; 
+    private apiUrl = environment.ApiUrl;
 
-    constructor(
-        private http: HttpClient,
-        private router: Router
-    ) {
+    constructor(private http: HttpClient, private router: Router) {
         const user = localStorage.getItem(Storage.User);
         if (user && user !== 'null') {
             this.userData = JSON.parse(user);
@@ -26,40 +22,34 @@ export class AuthService {
     }
 
     signIn(email: string, password: string) {
-        return this.http.post<any>(`${this.apiUrl}/auth/login`, { email, password })
+        return this.http
+            .post<any>(`${this.apiUrl}api/auth/signin`, { email, password })
             .subscribe({
                 next: (response) => {
-                    this.setUserData(response.user);
                     this.router.navigate([AppRoutes.Home]);
+                    // this.setUserData(response.user);
                 },
                 error: (error) => {
                     window.alert(error.message);
-                }
+                },
             });
     }
 
     signUp(email: string, password: string, name: string) {
-        return this.http.post<any>(`${this.apiUrl}/auth/register`, { email, password, name })
+        return this.http
+            .post<any>(`${this.apiUrl}api/auth/signup`, {
+                email,
+                password,
+                name,
+            })
             .subscribe({
                 next: (response) => {
-                    this.setUserData(response.user);
                     this.signIn(email, password);
+                    // this.setUserData(response.user);
                 },
                 error: (error) => {
                     window.alert(error.message);
-                }
-            });
-    }
-
-    forgotPassword(email: string) {
-        return this.http.post<any>(`${this.apiUrl}/auth/forgot-password`, { email })
-            .subscribe({
-                next: () => {
-                    window.alert('Password reset email sent, check your inbox.');
                 },
-                error: (error) => {
-                    window.alert(error.message);
-                }
             });
     }
 
@@ -70,7 +60,7 @@ export class AuthService {
 
     setUserData(user: any) {
         const userData: User = {
-            uid: user.uid,
+            id: user.id,
             email: user.email,
             emailVerified: user.emailVerified,
         };

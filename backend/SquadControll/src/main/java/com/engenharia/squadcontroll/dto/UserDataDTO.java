@@ -2,6 +2,7 @@ package com.engenharia.squadcontroll.dto;
 
 
 import com.engenharia.squadcontroll.entity.Employers;
+import com.engenharia.squadcontroll.entity.User;
 import com.engenharia.squadcontroll.entity.UserData;
 
 import java.util.Date;
@@ -19,12 +20,13 @@ public class UserDataDTO {
     private Integer rg;
     private Integer telefone;
     private Employers numDocFk;
+    private User userFk;
 
     public UserDataDTO() {
 
     }
 
-    public UserDataDTO(long id, Integer celular, Integer cep, String cidade, Date aniversario, String estado, String logradouro, String nome, String orgaoEmissor, Integer rg, Integer telefone, Employers numDocFk) {
+    public UserDataDTO(long id, Integer celular, Integer cep, String cidade, Date aniversario, String estado, String logradouro, String nome, String orgaoEmissor, Integer rg, Integer telefone, Employers numDocFk, User userFk) {
         this.id = id;
         this.celular = celular;
         this.cep = cep;
@@ -37,7 +39,9 @@ public class UserDataDTO {
         this.rg = rg;
         this.telefone = telefone;
         this.numDocFk = numDocFk;
+        this.userFk = userFk;
     }
+
     public UserDataDTO(UserData entity) {
         this.id = entity.getId();
         this.celular = entity.getCelular();
@@ -51,6 +55,15 @@ public class UserDataDTO {
         this.rg = entity.getRg();
         this.telefone = entity.getTelefone();
         this.numDocFk = entity.getNumDocFk();
+        this.userFk = entity.getUserFk();
+    }
+
+    public User getUserFk() {
+        return userFk;
+    }
+
+    public void setUserFk(User userFk) {
+        this.userFk = userFk;
     }
 
     public long getId() {
