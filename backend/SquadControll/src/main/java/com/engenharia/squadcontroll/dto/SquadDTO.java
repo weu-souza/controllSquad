@@ -12,6 +12,7 @@ import java.util.Date;
         private String nomeGestor;
         private String squad;
         private Date terminoContrato;
+        private String EXT;
 
         public SquadDTO() {
         }
@@ -23,6 +24,7 @@ import java.util.Date;
             this.nomeGestor = entity.getNomeGestor();
             this.squad = entity.getSquad();
             this.terminoContrato = entity.getTerminoContrato();
+            this.EXT = entity.getEXT();
         }
 
         public SquadDTO(long id, String celular, String email, Date inicioContrato, String nomeGestor, String squad, Date terminoContrato) {
@@ -33,6 +35,14 @@ import java.util.Date;
             this.nomeGestor = nomeGestor;
             this.squad = squad;
             this.terminoContrato = terminoContrato;
+        }
+
+        public String getEXT() {
+            return EXT;
+        }
+
+        public void setEXT(String EXT) {
+            this.EXT = EXT;
         }
 
         public long getId() {

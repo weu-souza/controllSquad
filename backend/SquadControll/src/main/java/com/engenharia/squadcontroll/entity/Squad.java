@@ -19,6 +19,7 @@ public class Squad {
     private String nomeGestor;
     private String squad;
     private Date terminoContrato;
+    private String EXT;
 
     public Squad(long id, String celular, String email, Date inicioContrato, String nomeGestor, String squad, Date terminoContrato) {
         this.id = id;
@@ -41,6 +42,15 @@ public class Squad {
         this.nomeGestor = dto.getNomeGestor();
         this.squad = dto.getSquad();
         this.terminoContrato = dto.getTerminoContrato();
+        this.EXT = dto.getEXT();
+    }
+
+    public String getEXT() {
+        return EXT;
+    }
+
+    public void setEXT(String EXT) {
+        this.EXT = EXT;
     }
 
     public long getId() {

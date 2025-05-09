@@ -1,5 +1,6 @@
 export class Squad
 {
+    id:number;
     nomeGestor!: string;
     inicioContrato!: Date;
     terminoContrato!: Date;
