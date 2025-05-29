@@ -23,7 +23,6 @@ public class EmployersService {
     }
 
     public Employers addEmployer(Employers employer) {
-
         return employerRepository.save(employer);
     }
 

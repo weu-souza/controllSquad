@@ -3,26 +3,26 @@ export interface Employee {
     dadosPessoais: DadosPessoais;
     empresa: Empresa;
     cliente: Cliente;
-    ausencias: AusenciaFerias;
+}
+
+export interface ICalendarEvent {
+    title: string;
+    start: string;
+    end: string;
+}
+
+export interface IcalendarForm {
+    cpf: string;
+    start: Date;
+    end: Date;
 }
 
 export class Employee {
     constructor(
         public dadosPessoais: DadosPessoais,
         public empresa: Empresa,
-        public cliente: Cliente,
-        public ausencias: AusenciaFerias
+        public cliente: Cliente
     ) {}
-}
-
-export interface Falta {
-    dataInicio: Date;
-    dataTermino: Date;
-    justificativa: string;
-}
-
-export interface AusenciaFerias {
-    ausencia: Falta[];
 }
 
 interface Cliente {

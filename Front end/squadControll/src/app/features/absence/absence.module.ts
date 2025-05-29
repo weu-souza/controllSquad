@@ -10,20 +10,19 @@ import { MatTableModule } from '@angular/material/table';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AbsenceComponent } from './pages/absence-form/absence.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 @NgModule({
-  declarations: [
-    AbsenceComponent,
-    FrameComponent
-  ],
-  imports: [
-    CommonModule,
-    AbsenceRoutingModule,
-    TitleModule,
-    PageTitleModule,
-    SvgModule,
-    MatTableModule,
-    FullCalendarModule,
-    ReactiveFormsModule
-  ]
+    declarations: [AbsenceComponent, FrameComponent],
+    imports: [
+        CommonModule,
+        AbsenceRoutingModule,
+        TitleModule,
+        PageTitleModule,
+        SvgModule,
+        MatTableModule,
+        FullCalendarModule,
+        ReactiveFormsModule,
+        NgxMaskModule,
+    ],
 })
-export class AbsenceModule { }
+export class AbsenceModule {}

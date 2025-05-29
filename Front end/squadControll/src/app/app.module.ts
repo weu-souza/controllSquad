@@ -20,6 +20,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { HttpClientModule } from '@angular/common/http';
+import { SquadService } from './features/squad/services/squad.service';
+import { AbsenceService } from './api/service/absence.service';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 export const customCurrencyMaskConfig = {
@@ -71,6 +73,8 @@ registerLocaleData(localeBr, 'pt');
             provide: DEFAULT_CURRENCY_CODE,
             useValue: 'BRL',
         },
+        SquadService,
+        AbsenceService,
     ],
     bootstrap: [AppComponent],
 })

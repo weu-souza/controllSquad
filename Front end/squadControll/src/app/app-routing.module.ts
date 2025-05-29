@@ -15,7 +15,6 @@ const routes: Routes = [
                 { path: AppRoutes.Squad, loadChildren: async () => (await import('./features/squad/squad.module')).SquadModule },
                 { path: AppRoutes.Config, loadChildren: async () => (await import('./features/config/config.module')).ConfigModule },
                 { path: AppRoutes.Employees, loadChildren: () => import('./features/employees/employees.module').then(m => m.EmployeesModule) },
-                { path: AppRoutes.Financial, loadChildren: () => import('./features/financial/financial.module').then(m => m.FinancialModule) },
                 { path: AppRoutes.Absence, loadChildren: () => import('./features/absence/absence.module').then(m => m.AbsenceModule) },
             ]
     },

@@ -9,6 +9,7 @@ export class FrameComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
