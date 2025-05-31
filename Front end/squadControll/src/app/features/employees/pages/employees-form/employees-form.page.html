@@ -66,7 +66,7 @@
                 </div>
                 <div>
                     <label>RG</label>
-                    <input type="text" formControlName="rg" mask="0000000" />
+                    <input type="text" formControlName="rg" mask="00.000.000-0" />
                     <app-form-error-message [formMessage]="employeeForm.get('dadosPessoais')!.get('rg')"></app-form-error-message>
                 </div>
                 <div>
@@ -125,12 +125,12 @@
                 </div>
                 <div>
                     <label>Número SAP</label>
-                    <input type="text" formControlName="numeroSap" />
+                    <input type="text" formControlName="numeroSap" mask="00000000"/>
                     <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('numeroSap')"></app-form-error-message>
                 </div>
                 <div>
                     <label>E-mail</label>
-                    <input type="text" formControlName="email" />
+                    <input type="email" formControlName="email" />
                     <app-form-error-message [formMessage]="employeeForm.get('empresa')!.get('email')"></app-form-error-message>
                 </div>
                 <div>
@@ -149,7 +149,7 @@
                 </div>
                 <div>
                     <label>Funcional</label>
-                    <input type="text" formControlName="funcional" />
+                    <input type="text" formControlName="funcional" mask="0000000000"/>
                     <app-form-error-message [formMessage]="employeeForm.get('cliente')!.get('funcional')"></app-form-error-message>
                 </div>
                 <div *ngIf="squads$ | async as squads"> 

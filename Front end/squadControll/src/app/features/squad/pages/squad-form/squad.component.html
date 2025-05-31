@@ -18,7 +18,7 @@
         </div>
         <div>
             <label>E-mail</label>
-            <input type="text" formControlName="email">
+            <input type="email" formControlName="email" >
             <app-form-error-message [formMessage]="squadForm.get(form.Email)"></app-form-error-message>
         </div>
         <div>
@@ -28,13 +28,13 @@
         </div>
         <div>
             <label>EXT</label>
-            <input type="text" formControlName="ext">
-            <app-form-error-message [formMessage]="squadForm.get(form.Ext)"></app-form-error-message>
+            <input type="text" formControlName="ext" mask="00000">
+            <app-form-error-message [formMessage]="squadForm.get(form.Ext)" ></app-form-error-message>
         </div>
         <div>
             <label>Celular</label>
-            <input type="text" formControlName="celular">
-            <app-form-error-message [formMessage]="squadForm.get(form.Celular)"></app-form-error-message>
+            <input type="text" formControlName="celular" mask="(00) 0 0000-0000">
+            <app-form-error-message [formMessage]="squadForm.get(form.Celular)" ></app-form-error-message>
         </div>
     </div>
 

@@ -32,11 +32,14 @@ export class SquadListComponent {
             this.service.remove(squad)
         );
 
-        if (error) this.snackbar.open(error, undefined, { duration: 5000 });
-        if (response)
-            this.snackbar.open('SQUAD removida com sucesso', undefined, {
-                duration: 5000,
-            });
-        this.dataSource.getItems();
+        if (error) {
+            this.snackbar.open(error, undefined, { duration: 5000 });
+            return;
+        }
+
+        this.snackbar.open('SQUAD removida com sucesso', undefined, {
+            duration: 5000,
+        });
+        this.dataSource.removeItem(squad, (item) => item.id);
     }
 }

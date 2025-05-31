@@ -40,5 +40,7 @@ export class EmployeesListPage
             this.snackbar.open(error, undefined, {duration: 5000});
         if(response)
             this.snackbar.open('Colaborador removido com sucesso', undefined, {duration: 5000});
+
+        this.dataSource.removeItem(employee, (item) => item.id);
     }
 }

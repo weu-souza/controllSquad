@@ -12,6 +12,8 @@ import { MatTableModule } from '@angular/material/table';
 import { TitleModule } from 'src/app/shared/components/title/title.module';
 import { FormErrorMessageModule } from 'src/app/shared/components/form-error-message/form-error-message.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxMaskModule } from 'ngx-mask';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     SquadComponent,
@@ -28,7 +30,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
     MatTableModule,
     TitleModule,
-    FormErrorMessageModule
+    FormErrorMessageModule,
+    NgxMaskModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SquadModule { }

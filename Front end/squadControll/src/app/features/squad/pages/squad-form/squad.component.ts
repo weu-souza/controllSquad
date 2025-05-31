@@ -40,7 +40,7 @@ export class SquadComponent implements OnInit {
             [SquadForm.NomeGestor]: [null, [Validators.required]],
             [SquadForm.InicioContrato]: [null, [Validators.required]],
             [SquadForm.TerminoContrato]: [null, [Validators.required]],
-            [SquadForm.Email]: [null, [Validators.required]],
+            [SquadForm.Email]: [null, [Validators.required, Validators.email]],
             [SquadForm.Squad]: [null, [Validators.required]],
             [SquadForm.Ext]: [null, [Validators.required]],
             [SquadForm.Celular]: [null, [Validators.required]],

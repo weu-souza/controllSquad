@@ -56,14 +56,14 @@ export class EmployeesFormPage implements OnInit {
                 gestor: [null, [Validators.required]],
                 unidadeNegocio: [null, [Validators.required]],
                 numeroSap: [null, [Validators.required]],
-                email: [null, [Validators.required]],
+                email: [null, [Validators.required,Validators.email]],
                 emailCurto: [null, [Validators.required]],
             }),
             cliente: this.fb.group({
                 racf: [null, [Validators.required]],
                 funcional: [null, [Validators.required]],
                 squad: [null, [Validators.required]],
-                email: [null, [Validators.required]],
+                email: [null, [Validators.required,Validators.email]],
             }),
         });
         this.squads$ = this.service.getSquads();

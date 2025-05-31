@@ -5,7 +5,9 @@
 </div>
 
 <ng-container *ngIf="dataSource.loading$ | async; else squadTable">
-    carregando
+    <div class="loading-spinner">
+        <mat-spinner diameter="40"></mat-spinner>
+    </div>
 </ng-container>
 
 <ng-template #squadTable>

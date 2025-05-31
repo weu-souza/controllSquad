@@ -18,6 +18,12 @@ export class DataSourceBase<T> implements DataSource<T> {
         this.loadingSubject.complete();
     }
 
+    public removeItem(itemToRemove: T, idSelector: (item: T) => any) {
+    const currentItems = this.itemsSubject.getValue();
+    const filteredItems = currentItems.filter(i => idSelector(i) !== idSelector(itemToRemove));
+    this.itemsSubject.next(filteredItems);
+}
+
     public getItems(args?: any) {
         this.loadingSubject.next(true);
         this.service
