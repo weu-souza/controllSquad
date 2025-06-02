@@ -30,10 +30,10 @@ public class UserData {
     @Column(name = "cidade", length = 50)
     private String cidade;
 
-    @Column(name = "cpf", length = 14)
+    @Column(name = "cpf", length = 14, unique = true)
     private String cpf;
 
-    @Column(name = "rg", length = 20)
+    @Column(name = "rg", length = 20, unique = true)
     private String rg;
 
     @Column(name = "orgao_emissor", length = 50)

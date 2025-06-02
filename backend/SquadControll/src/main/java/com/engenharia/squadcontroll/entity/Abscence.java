@@ -15,6 +15,7 @@ public class Abscence {
     @Column(name = "end_date")
     private Date end;
     private String title;
+    @Column(name = "cpf", length = 14, unique = true)
     private String cpf;
 
     public Abscence(Abscence dto) {
